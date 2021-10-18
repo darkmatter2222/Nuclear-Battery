@@ -37,7 +37,10 @@ adc = Adafruit_ADS1x15.ADS1115()
 #  -  16 = +/-0.256V
 # See table 3 in the ADS1015/ADS1115 datasheet for more info on gain.
 GAIN = 1
-duration = 30
+total_duration = 600
+duration = 0
+interval = 10
+number_of_tests = total_duration / interval
 results = []
 time_of_test = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
@@ -47,6 +50,7 @@ def perform_measurement(upload_to_mongo = False):
     global adc
     global results
     global time_of_test
+    duration += interval
     GPIO.output(measurement_pin, GPIO.HIGH)
     time.sleep(0.5)
     value = adc.read_adc(0, gain=GAIN)
@@ -54,15 +58,13 @@ def perform_measurement(upload_to_mongo = False):
     GPIO.output(measurement_pin, GPIO.LOW)
     print(f"voltage:{voltage} duration:{duration}")
     results.append({'time': duration, 'voltage': voltage, 'cell_number': cell_number, 'time_of_test': time_of_test})
-    duration += 30
+
     if upload_to_mongo:
         dict = {'time_of_test': time_of_test, 'tests': results}
         mycol.insert_one(dict)
         time_of_test = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
-        duration = 30
+        duration = 0
         results = []
-
-number_of_tests = 20
 
 while True:
     print("resetting cap...")
@@ -71,7 +73,7 @@ while True:
     GPIO.output(reset_pin, GPIO.LOW)
     print("cap reset.")
 
-    for i in range(20):
+    for i in range(number_of_tests):
         final = False
         if i == number_of_tests - 1:
             final = True
@@ -80,5 +82,5 @@ while True:
             t = threading.Thread(target=perform_measurement, args=(final,))
             t.start()
 
-        time.sleep(2)
+        time.sleep(interval)
 
