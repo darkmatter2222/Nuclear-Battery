@@ -9,7 +9,7 @@ import os
 import json
 from dotenv import load_dotenv
 
-load_dotenv("./.env")
+load_dotenv("/home/pi/source/repos/.env")
 
 myclient = pymongo.MongoClient(os.getenv('nuclear_battery_mongo_connection_string'))
 mydb = myclient["nuclear_battery"]
