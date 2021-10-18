@@ -40,7 +40,7 @@ GAIN = 1
 total_duration = 600
 duration = 0
 interval = 10
-number_of_tests = total_duration / interval
+number_of_tests = int(total_duration / interval)
 results = []
 time_of_test = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
