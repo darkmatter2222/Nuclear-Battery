@@ -37,7 +37,7 @@ adc = Adafruit_ADS1x15.ADS1115()
 #  -  16 = +/-0.256V
 # See table 3 in the ADS1015/ADS1115 datasheet for more info on gain.
 GAIN = 1
-duration=30
+duration = 30
 results = []
 time_of_test = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
@@ -73,7 +73,7 @@ while True:
 
     for i in range(20):
         final = False
-        if 1 == number_of_tests - 1:
+        if i == number_of_tests - 1:
             final = True
         t = threading.Thread(target=perform_measurement, args=(final,))
         time.sleep(30)
