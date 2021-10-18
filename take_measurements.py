@@ -69,7 +69,7 @@ def perform_measurement(upload_to_mongo = False):
 while True:
     print("resetting cap...")
     GPIO.output(reset_pin, GPIO.HIGH)
-    time.sleep(1)
+    time.sleep(2)
     GPIO.output(reset_pin, GPIO.LOW)
     print("cap reset.")
 
