@@ -75,6 +75,10 @@ while True:
         final = False
         if i == number_of_tests - 1:
             final = True
-        t = threading.Thread(target=perform_measurement, args=(final,))
-        time.sleep(30)
-        t.start()
+            perform_measurement(final)
+        else:
+            t = threading.Thread(target=perform_measurement, args=(final,))
+            t.start()
+
+        time.sleep(2)
+
