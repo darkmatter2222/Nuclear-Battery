@@ -72,9 +72,9 @@ while True:
     time.sleep(1)
     GPIO.output(reset_pin, GPIO.LOW)
     print("cap reset.")
-    time.sleep(interval)
 
     for i in range(number_of_tests):
+        time.sleep(interval)
         final = False
         if i == number_of_tests - 1:
             final = True
