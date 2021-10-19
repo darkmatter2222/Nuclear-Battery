@@ -10,7 +10,7 @@ Maybe the next person can learn from this repo and my research and improve.
 * Circuit Design
 * Measurement Techniques
 * Potential Applications
-* Tritium Glamor Shots
+* [Tritium Glamor Shots](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/images/tritium%20vials)
 
 
 # Measurements
