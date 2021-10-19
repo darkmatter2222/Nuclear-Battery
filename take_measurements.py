@@ -7,6 +7,7 @@ from pymongo import MongoClient
 import pymongo
 import os
 import json
+from tqdm import tqdm
 from dotenv import load_dotenv
 
 from pathlib import Path
@@ -45,7 +46,7 @@ results = []
 time_of_test = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
 
-def perform_measurement(upload_to_mongo = False):
+def perform_measurement(upload_to_mongo = False, v = False):
     global duration
     global adc
     global results
@@ -56,7 +57,8 @@ def perform_measurement(upload_to_mongo = False):
     value = adc.read_adc(0, gain=GAIN)
     voltage = round((4.096 * value) / 32767, 6)
     GPIO.output(measurement_pin, GPIO.LOW)
-    print(f"voltage:{voltage} duration:{duration}")
+    if v:
+        print(f"voltage:{voltage} duration:{duration}")
     results.append({'time': duration, 'voltage': voltage, 'cell_number': cell_number, 'time_of_test': time_of_test})
 
     if upload_to_mongo:
@@ -66,21 +68,25 @@ def perform_measurement(upload_to_mongo = False):
         duration = 0
         results = []
 
+
+verbose = False
+
 while True:
-    print("resetting cap...")
+    print("Resetting Cap...")
     GPIO.output(reset_pin, GPIO.HIGH)
     time.sleep(2)
     GPIO.output(reset_pin, GPIO.LOW)
-    print("cap reset.")
-
-    for i in range(number_of_tests):
+    print("Cap Reset.")
+    time.sleep(2)
+    print("Starting Test...")
+    for i in tqdm(range(number_of_tests)):
         time.sleep(interval)
         final = False
         if i == number_of_tests - 1:
             final = True
-            perform_measurement(final)
+            perform_measurement(final, verbose,)
         else:
-            t = threading.Thread(target=perform_measurement, args=(final,))
+            t = threading.Thread(target=perform_measurement, args=(final, verbose,))
             t.start()
 
 
