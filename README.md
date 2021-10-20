@@ -8,8 +8,8 @@ Maybe the next person can learn from this repo and my research and improve.
 # Subject matter of this repo
 * [Physical Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/physical_design)
 * [Circuit Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/circuit_diagrams)
-* Measurement Techniques
-* Potential Applications
+* [Measurement Techniques](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/measurement_techniques)
+* [Potential Applications](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/potential_applications)
 * [Tritium Glamor Shots](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/images/tritium%20vials)
 
 
