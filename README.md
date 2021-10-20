@@ -6,10 +6,10 @@ I have a deep belief that this latent energy if captured efficiently and properl
 Maybe the next person can learn from this repo and my research and improve.  
 
 # Subject matter of this repo
-* [Physical Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/physical_design)
-* [Circuit Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/circuit_diagrams)
+* [Physical Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/physical_design) (WIP)  
+* [Circuit Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/circuit_diagrams) (WIP)  
 * [Measurement Techniques](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/measurement_techniques)
-* [Potential Applications](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/potential_applications)
+* [Potential Applications](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/potential_applications) (WIP)  
 * [Tritium Glamor Shots](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/images/tritium%20vials)
 
 
