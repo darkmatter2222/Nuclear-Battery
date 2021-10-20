@@ -12,14 +12,5 @@ Maybe the next person can learn from this repo and my research and improve.
 * [Potential Applications](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/potential_applications) (WIP)  
 * [Tritium Glamor Shots](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/images/tritium%20vials)
 
-
-# Measurements
-![measurements](/images/charge_rate.png)
-
-# Circuit Layout
-https://crcit.net/c/0b1ff288267d45d8bab1ab76c9aae6c0
-![diagram](/images/wiring_diagram.png)
-![layout](/images/layout.png)  
-
 # Project Updates  
 https://www.facebook.com/HobbyTimeWithRyan
