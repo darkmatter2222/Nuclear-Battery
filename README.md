@@ -6,7 +6,7 @@ I have a deep belief that this latent energy if captured efficiently and properl
 Maybe the next person can learn from this repo and my research and improve.  
 
 # Subject matter of this repo
-* Physical Design
+* [Physical Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/physical_design)
 * Circuit Design
 * Measurement Techniques
 * Potential Applications
