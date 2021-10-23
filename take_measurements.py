@@ -17,7 +17,7 @@ load_dotenv(dotenv_path=dotenv_path)
 
 myclient = pymongo.MongoClient(os.getenv('nuclear_battery_mongo_connection_string'))
 mydb = myclient["nuclear_battery"]
-mycol = mydb["testing_data"]
+mycol = mydb["testing_data_v2"]
 
 GPIO.setmode(GPIO.BCM)
 measurement_pin = 26
@@ -25,7 +25,8 @@ reset_pin = 19
 GPIO.setup(measurement_pin,GPIO.OUT)
 GPIO.setup(reset_pin,GPIO.OUT)
 
-cell_number = input("what is the cell number?")
+tritium_cell_number = input("What tritium cell number is this?")
+solar_cell_number = input("What solar cell number is this?")
 adc = Adafruit_ADS1x15.ADS1115()
 
 # Choose a gain of 1 for reading voltages from 0 to 4.09V.
@@ -59,7 +60,8 @@ def perform_measurement(upload_to_mongo = False, v = False):
     GPIO.output(measurement_pin, GPIO.LOW)
     if v:
         print(f"voltage:{voltage} duration:{duration}")
-    results.append({'time': duration, 'voltage': voltage, 'cell_number': cell_number, 'time_of_test': time_of_test})
+    results.append({'time': duration, 'voltage': voltage, 'tritium_cell_number': tritium_cell_number,
+                    'solar_cell_number': solar_cell_number, 'time_of_test': time_of_test})
 
     if upload_to_mongo:
         dict = {'time_of_test': time_of_test, 'tests': results}
