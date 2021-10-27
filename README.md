@@ -13,6 +13,7 @@ Maybe the next person can learn from this repo and my research and improve.
   * :chart_with_upwards_trend:[Python notebooks for analiyzing measurements](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/measurement_techniques/analiyze_measurements) 
 * [Potential Applications](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/potential_applications) (WIP)  
 * [Tritium Glamor Shots](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/images/tritium%20vials)
+* :mag:[Findings and Milestones](https://github.com/darkmatter2222/Nuclear-Battery/wiki)
 
 # Project Updates  
 https://www.facebook.com/HobbyTimeWithRyan
