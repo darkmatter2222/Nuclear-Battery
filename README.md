@@ -15,5 +15,9 @@ Maybe the next person can learn from this repo and my research and improve.
 * [Tritium Glamor Shots](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/images/tritium%20vials)
 * :mag:[Findings and Milestones](https://github.com/darkmatter2222/Nuclear-Battery/wiki)
 
+# Science   
+[Photovoltaics](https://en.wikipedia.org/wiki/Photovoltaics) and [Betavoltaics](https://en.wikipedia.org/wiki/Betavoltaic_device), what we are building is much safer version of [this](https://arxiv.org/ftp/arxiv/papers/1511/1511.07427.pdf) where instead of using Isotopes of promethium, we are using tritium an isotope of hydrogen, a beta particle emitter.
+
+
 # Project Updates  
 https://www.facebook.com/HobbyTimeWithRyan
