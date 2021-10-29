@@ -6,7 +6,8 @@ I have a deep belief that this latent energy if captured efficiently and properl
 Maybe the next person can learn from this repo and my research and improve.  
 
 # Subject matter of this repo
-* [Physical Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/physical_design) (WIP)  
+* [Physical Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/physical_design)
+  * [Mk1 Nuclear Battery Cell Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/physical_design#battery-cell-mk1)
 * [Circuit Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/circuit_diagrams) (WIP)  
 * [Measurement Techniques](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/measurement_techniques)
   * :electric_plug:[Python code for taking voltage measurements](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/measurement_techniques/take_measurements)
