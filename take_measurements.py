@@ -79,11 +79,14 @@ def perform_measurement(upload_to_mongo = False, v = False):
 
     if v:
         print(f"voltage (V):{voltage}, amperage (A):{format(amperage, '.12f')}, duration interval (s):{duration}")
-    results.append({'time': duration, 'voltage': voltage, 'amperage': format(amperage, '.12f'), 'tritium_cell_number': tritium_cell_number,
+    results.append({'time': duration, 'voltage': voltage, 'amperage': format(amperage, '.12f'),
+                    'tritium_cell_number': tritium_cell_number,
                     'solar_cell_number': solar_cell_number, 'time_of_test': time_of_test})
 
     if upload_to_mongo:
-        dict = {'time_of_test': time_of_test, 'tests': results}
+        dict = {'time_of_test': time_of_test, 'tests': results, 'features': ['time', 'voltage', 'amperage',
+                                                                            'tritium_cell_number', 'solar_cell_number',
+                                                                            'time_of_test']}
         mycol.insert_one(dict)
         time_of_test = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
         duration = 0
