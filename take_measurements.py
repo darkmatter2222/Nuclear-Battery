@@ -49,10 +49,14 @@ results = []
 time_of_test = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
 
+def average(lst):
+    return sum(lst) / len(lst)
+
+
 def take_voltage_measurement():
     GPIO.output(voltage_measurement_pin, GPIO.HIGH)
     time.sleep(0.5)
-    value = adc.read_adc(0, gain=GAIN)
+    value = average([adc.read_adc(0, gain=GAIN), adc.read_adc(0, gain=GAIN), adc.read_adc(0, gain=GAIN)])
     voltage = round((4.096 * value) / 32767, 6)
     GPIO.output(voltage_measurement_pin, GPIO.LOW)
     return voltage
@@ -61,7 +65,7 @@ def take_voltage_measurement():
 def take_current_measurement(resistor_ohms = 100000):
     GPIO.output(current_measurement_pin, GPIO.HIGH)
     time.sleep(0.5)
-    value = adc.read_adc(1, gain=GAIN)
+    value = average([adc.read_adc(1, gain=GAIN), adc.read_adc(1, gain=GAIN), adc.read_adc(1, gain=GAIN)])
     voltage = round((4.096 * value) / 32767, 6)
     GPIO.output(current_measurement_pin, GPIO.LOW)
     amps = voltage / resistor_ohms
