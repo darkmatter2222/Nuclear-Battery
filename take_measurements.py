@@ -78,8 +78,8 @@ def perform_measurement(upload_to_mongo = False, v = False):
     amperage = take_current_measurement()
 
     if v:
-        print(f"voltage (V):{voltage}, amperage (A):{format(amperage, 'f')}, duration interval (s):{duration}")
-    results.append({'time': duration, 'voltage': voltage, 'amperage': format(amperage, 'f'), 'tritium_cell_number': tritium_cell_number,
+        print(f"voltage (V):{voltage}, amperage (A):{format(amperage, '.12f')}, duration interval (s):{duration}")
+    results.append({'time': duration, 'voltage': voltage, 'amperage': format(amperage, '.12f'), 'tritium_cell_number': tritium_cell_number,
                     'solar_cell_number': solar_cell_number, 'time_of_test': time_of_test})
 
     if upload_to_mongo:
