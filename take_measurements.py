@@ -75,6 +75,7 @@ def perform_measurement(upload_to_mongo = False, v = False):
     global time_of_test
     duration += interval
     voltage = take_voltage_measurement()
+    time.sleep(0.5)
     amperage = take_current_measurement()
 
     if v:
