@@ -54,7 +54,7 @@ def average(lst):
 
 
 def take_voltage_measurement(pin, adc_channel):
-    count_measurements = 5
+    count_measurements = 50
     total_measurement_duration = 0.5
     inter_duration = total_measurement_duration / count_measurements
     measurements = []
