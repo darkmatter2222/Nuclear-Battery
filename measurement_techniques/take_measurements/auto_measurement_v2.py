@@ -20,10 +20,12 @@ mydb = myclient["nuclear_battery"]
 mycol = mydb["testing_data_v2"]
 
 GPIO.setmode(GPIO.BCM)
-measurement_pin = 26
+voltage_measurement_pin = 26
+current_measurement_pin = 6
 reset_pin = 19
-GPIO.setup(measurement_pin,GPIO.OUT)
-GPIO.setup(reset_pin,GPIO.OUT)
+GPIO.setup(voltage_measurement_pin, GPIO.OUT)
+GPIO.setup(current_measurement_pin, GPIO.OUT)
+GPIO.setup(reset_pin, GPIO.OUT)
 
 tritium_cell_number = input("What tritium cell number is this?")
 solar_cell_number = input("What solar cell number is this?")
@@ -47,31 +49,70 @@ results = []
 time_of_test = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
 
 
-def perform_measurement(upload_to_mongo = False, v = False):
+def average(lst):
+    return sum(lst) / len(lst)
+
+
+def take_voltage_measurement(pin, adc_channel):
+    count_measurements = 50
+    total_measurement_duration = 0.5
+    inter_duration = total_measurement_duration / count_measurements
+    measurements = []
+
+    # tap in and measure
+    GPIO.output(pin, GPIO.HIGH)
+    for i in range(count_measurements):
+        time.sleep(inter_duration)
+        measurements.append(adc.read_adc(adc_channel, gain=GAIN))
+    GPIO.output(pin, GPIO.LOW)
+    # tap out, measurements complete
+
+    value = average(measurements)
+    voltage = round((4.096 * value) / 32767, 6)
+    return voltage
+
+
+def take_current_measurement(resistor_ohms=100000):
+    voltage = take_voltage_measurement(current_measurement_pin, 1)
+    amperage = voltage / resistor_ohms
+    return amperage
+
+
+def get_voltage():
+    return take_voltage_measurement(voltage_measurement_pin, 0)
+
+
+def get_current():
+    return take_current_measurement()
+
+
+def perform_measurement(upload_to_mongo=False, v=False):
     global duration
     global adc
     global results
     global time_of_test
     duration += interval
-    GPIO.output(measurement_pin, GPIO.HIGH)
+    voltage = get_voltage()
     time.sleep(0.5)
-    value = adc.read_adc(0, gain=GAIN)
-    voltage = round((4.096 * value) / 32767, 6)
-    GPIO.output(measurement_pin, GPIO.LOW)
+    amperage = get_current()
+
     if v:
-        print(f"voltage:{voltage} duration:{duration}")
-    results.append({'time': duration, 'voltage': voltage, 'tritium_cell_number': tritium_cell_number,
+        print(f"voltage (V):{voltage}, amperage (A):{format(amperage, '.12f')}, duration interval (s):{duration}")
+    results.append({'time': duration, 'voltage': voltage, 'amperage': format(amperage, '.12f'),
+                    'tritium_cell_number': tritium_cell_number,
                     'solar_cell_number': solar_cell_number, 'time_of_test': time_of_test})
 
     if upload_to_mongo:
-        dict = {'time_of_test': time_of_test, 'tests': results}
+        dict = {'time_of_test': time_of_test, 'tests': results, 'features': ['time', 'voltage', 'amperage',
+                                                                            'tritium_cell_number', 'solar_cell_number',
+                                                                            'time_of_test']}
         mycol.insert_one(dict)
         time_of_test = datetime.datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
         duration = 0
         results = []
 
 
-verbose = False
+verbose = True
 
 while True:
     print("Resetting Cap...")
