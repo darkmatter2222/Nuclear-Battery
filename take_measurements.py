@@ -53,34 +53,48 @@ def average(lst):
     return sum(lst) / len(lst)
 
 
-def take_voltage_measurement():
-    GPIO.output(voltage_measurement_pin, GPIO.HIGH)
-    time.sleep(0.5)
-    value = average([adc.read_adc(0, gain=GAIN), adc.read_adc(0, gain=GAIN), adc.read_adc(0, gain=GAIN)])
+def take_voltage_measurement(pin, adc_channel):
+    count_measurements = 5
+    total_measurement_duration = 0.5
+    inter_duration = total_measurement_duration / count_measurements
+    measurements = []
+
+    # tap in and measure
+    GPIO.output(pin, GPIO.HIGH)
+    for i in range(count_measurements):
+        time.sleep(inter_duration)
+        measurements.appen(adc.read_adc(adc_channel, gain=GAIN))
+    GPIO.output(pin, GPIO.LOW)
+    # tap out, measurements complete
+
+    value = average(measurements)
     voltage = round((4.096 * value) / 32767, 6)
-    GPIO.output(voltage_measurement_pin, GPIO.LOW)
     return voltage
 
 
-def take_current_measurement(resistor_ohms = 100000):
-    GPIO.output(current_measurement_pin, GPIO.HIGH)
-    time.sleep(0.5)
-    value = average([adc.read_adc(1, gain=GAIN), adc.read_adc(1, gain=GAIN), adc.read_adc(1, gain=GAIN)])
-    voltage = round((4.096 * value) / 32767, 6)
-    GPIO.output(current_measurement_pin, GPIO.LOW)
-    amps = voltage / resistor_ohms
-    return amps
+def take_current_measurement(resistor_ohms=100000):
+    voltage = take_voltage_measurement(current_measurement_pin, 1)
+    amperage = voltage / resistor_ohms
+    return amperage
 
 
-def perform_measurement(upload_to_mongo = False, v = False):
+def get_voltage():
+    return take_voltage_measurement(voltage_measurement_pin, 0)
+
+
+def get_current():
+    return take_current_measurement()
+
+
+def perform_measurement(upload_to_mongo=False, v=False):
     global duration
     global adc
     global results
     global time_of_test
     duration += interval
-    voltage = take_voltage_measurement()
+    voltage = get_voltage()
     time.sleep(0.5)
-    amperage = take_current_measurement()
+    amperage = get_current()
 
     if v:
         print(f"voltage (V):{voltage}, amperage (A):{format(amperage, '.12f')}, duration interval (s):{duration}")
