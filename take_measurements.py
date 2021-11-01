@@ -63,7 +63,7 @@ def take_voltage_measurement(pin, adc_channel):
     GPIO.output(pin, GPIO.HIGH)
     for i in range(count_measurements):
         time.sleep(inter_duration)
-        measurements.appen(adc.read_adc(adc_channel, gain=GAIN))
+        measurements.append(adc.read_adc(adc_channel, gain=GAIN))
     GPIO.output(pin, GPIO.LOW)
     # tap out, measurements complete
 
