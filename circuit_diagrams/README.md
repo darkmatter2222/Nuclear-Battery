@@ -1,28 +1,24 @@
 # Ryan Susman's Nuclear Battery Project 
 
-# Objective:  
-Build an energy harvester to collect latient energy from tritium vials.  
-I have a deep belief that this latent energy if captured efficiently and properly harvested can be put to good use.  I understand that solar cells are incredibly inefficient and may things that I’m doing here are not perfect. This repo is to only explore the science.  
-Maybe the next person can learn from this repo and my research and improve.  
+# Measurement Techniques
 
-![](https://github.com/darkmatter2222/Nuclear-Battery/blob/main/images/render1.png)  
-![](https://github.com/darkmatter2222/Nuclear-Battery/blob/main/images/render2.png)
+## Objective
+Find reliable methods to measure the performance of individual aspects of this project.
 
-# Subject matter of this repo
-* [Physical Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/physical_design)
-  * [Mk1 Nuclear Battery Cell Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/physical_design#battery-cell-mk1)
-* [Circuit Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/circuit_diagrams) (WIP)  
-* [Measurement Techniques](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/measurement_techniques)
-  * :electric_plug:[Python code for taking voltage measurements](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/measurement_techniques/take_measurements)
-  * :chart_with_upwards_trend:[Python notebooks for analiyzing measurements](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/measurement_techniques/analiyze_measurements)  
-    * [Google Colab Notebook - Compare Cells](https://colab.research.google.com/github/darkmatter2222/Nuclear-Battery/blob/main/measurement_techniques/analiyze_measurements/single_cell_performance_testing.ipynb) 
-* [Potential Applications](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/potential_applications) (WIP)  
-* [Tritium Glamor Shots](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/images/tritium%20vials)
-* :mag:[Findings and Milestones](https://github.com/darkmatter2222/Nuclear-Battery/wiki)
+## Individual Tritium Cell Performance 
+Leveraging a Raspberry Pi 3 B+ and a 16 Bit ADC, I can perform endurance measurements on each tritium cell.   
+Amazon: [Raspberry Pi 3 B+](https://www.amazon.com/s?k=raspberry+pi+3+b%2B)  
+Amazon: [16 Bits ADS1115 ADC Analog to Digital Module for Raspberry Pi 3/2/B+](https://www.amazon.com/ADS1115-Analog-Digital-Module-Raspberry/dp/B07GGY7WX7)  
+  
+I found this for be consistently more accurate and significantly cheaper than a python enabled FLUKE multimeter.  
 
-# Science   
-[Photovoltaics](https://en.wikipedia.org/wiki/Photovoltaics) and [Betavoltaics](https://en.wikipedia.org/wiki/Betavoltaic_device), what we are building is much safer version of [this](https://arxiv.org/ftp/arxiv/papers/1511/1511.07427.pdf) where instead of using Isotopes of promethium, we are using tritium an isotope of hydrogen, a beta particle emitter.
+Using this approach, I can execute 24+ hour endurance testing where we charge a capacitor and discharge a capacitor repeatedly. By doing this we can reliably measure and improve each tritium cell to be peak performance.  
 
+[Automated Raspberry Pi MEasurements w/ ADC Python Code](https://github.com/darkmatter2222/Nuclear-Battery/blob/main/take_measurements.py)
+
+![layout](https://github.com/darkmatter2222/Nuclear-Battery/blob/main/images/layout.png)  
+
+![/images/measurement_techniques_sample_1.png](/images/measurement_techniques_sample_1.png)
 
 # Project Updates  
 https://www.facebook.com/HobbyTimeWithRyan
