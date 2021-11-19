@@ -42,6 +42,7 @@ adc = Adafruit_ADS1x15.ADS1115()
 # See table 3 in the ADS1015/ADS1115 datasheet for more info on gain.
 GAIN = 1
 total_duration = 600
+measurement_pause_duration = 1
 duration = 0
 interval = 10
 number_of_tests = int(total_duration / interval)
@@ -61,6 +62,7 @@ def take_voltage_measurement(pin, adc_channel):
 
     # tap in and measure
     GPIO.output(pin, GPIO.HIGH)
+    time.sleep(measurement_pause_duration)
     for i in range(count_measurements):
         time.sleep(inter_duration)
         measurements.append(adc.read_adc(adc_channel, gain=GAIN))
