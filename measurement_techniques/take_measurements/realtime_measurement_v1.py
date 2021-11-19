@@ -64,11 +64,13 @@ GPIO.output(voltage_measurement_pin, GPIO.HIGH)
 
 
 try:
+    print("Beginning...")
     while True:
-        print("Beginning...")
         time.sleep(0.5)
         perform_measurement()
-        plt.plot(voltage_list)
+        plt.clf()
+        plt.plot(voltage_list, 'voltage')
+        plt.plot(current_list, 'current')
         plt.pause(0.05)
 except Exception as e:
     print(e)
