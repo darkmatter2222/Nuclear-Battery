@@ -20,6 +20,7 @@ current_measurement_pin = 6
 reset_pin = 19
 GPIO.setup(voltage_measurement_pin, GPIO.OUT)
 GPIO.setup(current_measurement_pin, GPIO.OUT)
+GPIO.setup(reset_pin, GPIO.OUT)
 
 adc = Adafruit_ADS1x15.ADS1115()
 
