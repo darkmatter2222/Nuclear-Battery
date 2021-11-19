@@ -74,5 +74,5 @@ try:
 except Exception as e:
     print(e)
 
-GPIO.output(voltage_measurement_pin, GPIO.LOW)
+#GPIO.output(voltage_measurement_pin, GPIO.LOW)
 
