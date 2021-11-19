@@ -1,12 +1,11 @@
 # Ryan Susman's Nuclear Battery Project 
 
-# Objective:  
-Build an energy harvester to collect latient energy from tritium vials.  
-I have a deep belief that this latent energy if captured efficiently and properly harvested can be put to good use.  I understand that solar cells are incredibly inefficient and may things that I’m doing here are not perfect. This repo is to only explore the science.  
-Maybe the next person can learn from this repo and my research and improve.  
+# Project Resources 
+[RYAN SUSMAN'S NUCLEAR BATTERY PROJECT](https://susmantritiumnuclearbattery.blogspot.com/)
+[Youtube Channel](https://www.youtube.com/channel/UCgzdK6hoZUK6JLURkCWdIGA)
 
-![](https://github.com/darkmatter2222/Nuclear-Battery/blob/main/images/render1.png)  
-![](https://github.com/darkmatter2222/Nuclear-Battery/blob/main/images/render2.png)
+# Objective:  
+[Blog Objective](https://susmantritiumnuclearbattery.blogspot.com/2021/11/test-title.html#more)
 
 # Subject matter of this repo
 * [Physical Design](https://github.com/darkmatter2222/Nuclear-Battery/tree/main/physical_design)
@@ -24,5 +23,4 @@ Maybe the next person can learn from this repo and my research and improve.
 [Photovoltaics](https://en.wikipedia.org/wiki/Photovoltaics) and [Betavoltaics](https://en.wikipedia.org/wiki/Betavoltaic_device), what we are building is much safer version of [this](https://arxiv.org/ftp/arxiv/papers/1511/1511.07427.pdf) where instead of using Isotopes of promethium, we are using tritium an isotope of hydrogen, a beta particle emitter.
 
 
-# Project Updates  
-https://www.facebook.com/HobbyTimeWithRyan
+
