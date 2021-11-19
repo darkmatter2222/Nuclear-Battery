@@ -9,6 +9,8 @@ import os
 import json
 from tqdm import tqdm
 from dotenv import load_dotenv
+import numpy as np
+import matplotlib.pyplot as plt
 
 from pathlib import Path
 
@@ -66,7 +68,8 @@ try:
         print("Beginning...")
         time.sleep(0.5)
         perform_measurement()
-        print(voltage_list)
+        plt.plot(voltage_list)
+        plt.pause(0.05)
 except Exception as e:
     print(e)
 
