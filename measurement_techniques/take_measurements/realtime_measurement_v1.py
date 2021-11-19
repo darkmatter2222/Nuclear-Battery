@@ -19,8 +19,6 @@ reset_pin = 19
 GPIO.setup(voltage_measurement_pin, GPIO.OUT)
 GPIO.setup(current_measurement_pin, GPIO.OUT)
 
-tritium_cell_number = input("What tritium cell number is this?")
-solar_cell_number = input("What solar cell number is this?")
 adc = Adafruit_ADS1x15.ADS1115()
 
 # Choose a gain of 1 for reading voltages from 0 to 4.09V.
@@ -48,7 +46,7 @@ def perform_measurement():
     voltage = round((4.096 * value) / 32767, 6)
     voltage_list.append(voltage)
     if len(voltage_list) > max_list_length:
-        del max_list_length[0:1]
+        del voltage_list[0]
 
     channel = 1
     value = adc.read_adc(channel, gain=GAIN)
@@ -56,7 +54,7 @@ def perform_measurement():
     amperage = voltage / 100000
     current_list.append(amperage)
     if len(current_list) > max_list_length:
-        del voltage_list[0:1]
+        del current_list[0]
 
 
 
