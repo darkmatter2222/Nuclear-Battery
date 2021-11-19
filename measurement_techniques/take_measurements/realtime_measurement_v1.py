@@ -69,8 +69,7 @@ try:
         time.sleep(0.5)
         perform_measurement()
         plt.clf()
-        plt.plot(voltage_list, 'voltage')
-        plt.plot(current_list, 'current')
+        plt.plot(voltage_list)
         plt.pause(0.05)
 except Exception as e:
     print(e)
