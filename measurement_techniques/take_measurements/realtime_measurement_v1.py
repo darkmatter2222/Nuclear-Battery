@@ -62,6 +62,11 @@ def perform_measurement():
 
 GPIO.output(voltage_measurement_pin, GPIO.HIGH)
 
+print("Resetting Cap...")
+GPIO.output(reset_pin, GPIO.HIGH)
+time.sleep(2)
+GPIO.output(reset_pin, GPIO.LOW)
+print("Cap Reset.")
 
 try:
     print("Beginning...")
