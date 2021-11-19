@@ -1,7 +1,7 @@
 # Ryan Susman's Nuclear Battery Project 
 
 # Project Resources 
-[RYAN SUSMAN'S NUCLEAR BATTERY PROJECT](https://susmantritiumnuclearbattery.blogspot.com/)
+[RYAN SUSMAN'S NUCLEAR BATTERY PROJECT](https://susmantritiumnuclearbattery.blogspot.com/)  
 [Youtube Channel](https://www.youtube.com/channel/UCgzdK6hoZUK6JLURkCWdIGA)
 
 # Objective:  
