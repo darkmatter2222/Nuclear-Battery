@@ -62,14 +62,15 @@ def perform_measurement():
 
 GPIO.output(voltage_measurement_pin, GPIO.HIGH)
 
-while True:
-    try:
+
+try:
+    while True:
         print("Beginning...")
         time.sleep(0.5)
         perform_measurement()
         print(voltage_list)
-    except:
-        lol = 1
+except Exception as e:
+    print(e)
 
 GPIO.output(voltage_measurement_pin, GPIO.LOW)
 
