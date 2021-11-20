@@ -57,13 +57,13 @@ def perform_measurement():
     if len(voltage_list) > max_list_length:
         del voltage_list[0]
 
-    channel = 1
-    value = adc.read_adc(channel, gain=GAIN)
-    voltage = round((4.096 * value) / 32767, 6)
-    amperage = voltage / 100000
-    current_list.append(amperage)
-    if len(current_list) > max_list_length:
-        del current_list[0]
+    #channel = 1
+    #value = adc.read_adc(channel, gain=GAIN)
+    #voltage = round((4.096 * value) / 32767, 6)
+    #amperage = voltage / 100000
+    #current_list.append(amperage)
+    #if len(current_list) > max_list_length:
+        #del current_list[0]
 
 
 
