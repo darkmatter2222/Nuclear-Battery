@@ -82,7 +82,7 @@ try:
         perform_measurement()
         plt.clf()
         plt.plot(voltage_list, color='blue')
-        plt.axhline(y=average(voltage_list), color='red', linestyles='-')
+        plt.axhline(y=average(voltage_list), color='red', linestyle='-')
         plt.pause(0.05)
 except Exception as e:
     print(e)
