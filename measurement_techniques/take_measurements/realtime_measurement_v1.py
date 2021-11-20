@@ -33,6 +33,12 @@ adc = Adafruit_ADS1x15.ADS1115()
 #  -   8 = +/-0.512V
 #  -  16 = +/-0.256V
 # See table 3 in the ADS1015/ADS1115 datasheet for more info on gain.
+
+
+def average(lst):
+    return sum(lst) / len(lst)
+
+
 GAIN = 1
 max_list_length = 30
 
@@ -75,7 +81,8 @@ try:
         time.sleep(0.5)
         perform_measurement()
         plt.clf()
-        plt.plot(voltage_list)
+        plt.plot(voltage_list, colors='blue')
+        plt.hlines(y=average(voltage_list), colors='red', linestyles='-')
         plt.pause(0.05)
 except Exception as e:
     print(e)
