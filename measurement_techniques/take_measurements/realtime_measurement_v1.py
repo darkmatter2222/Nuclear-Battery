@@ -78,7 +78,7 @@ print("Cap Reset.")
 try:
     print("Beginning...")
     while True:
-        time.sleep(0.5)
+        #time.sleep(0.5)
         perform_measurement()
         plt.clf()
         plt.plot(voltage_list, color='blue')
