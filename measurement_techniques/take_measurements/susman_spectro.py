@@ -8,37 +8,43 @@ from PIL import Image, ImageDraw, ImageFile, ImageFont, ImageOps
 import matplotlib.pyplot as plt
 from matplotlib.pyplot import cm
 import matplotlib.colors as colors
-
-
 from PIL import Image, ImageDraw, ImageFont
 
 raw_filename = r"C:\Users\ryans\Downloads\sunlight.jpg"
-raw_filename = r"C:\Users\ryans\Downloads\1U5hddy.jpg"
-im = np.asarray(Image.open(raw_filename))
+raw_filename = ""
 
-sliced_im = im[1100:1200, 970:1570]
+totals_collection = []
 
-im = Image.fromarray(np.uint8(sliced_im)).convert('RGB')
+for i in range(10):
+    raw_filename = rf"C:\Users\ryans\Desktop\Spectrum1\{i}.jpg"
 
-newsize = (300, im.size[1])
-im = im.resize(newsize)
+    im = np.asarray(Image.open(raw_filename))
 
-imgplot = plt.imshow(im)
-plt.savefig('raw.png', dpi=200)
-#plt.show()
+    sliced_im = im[1100:1200, 970:1570]
 
-im = np.asarray(im)
+    im = Image.fromarray(np.uint8(sliced_im)).convert('RGB')
 
-totals = [0] * im.shape[1]
+    newsize = (300, im.size[1])
+    im = im.resize(newsize)
 
-for y in range(im.shape[0]):
-    for x in range(im.shape[1]):
-        totals[x] += sum(im[y][x])
+    #imgplot = plt.imshow(im)
+    #plt.savefig('raw.png', dpi=200)
+    #plt.show()
 
-#for x in range(im.shape[1]):
-    #totals[x] = (totals[x] / im.shape[1])
+    im = np.asarray(im)
 
-totals = (np.array(totals) / 255).tolist()
+    totals = [0] * im.shape[1]
+
+    for y in range(im.shape[0]):
+        for x in range(im.shape[1]):
+            totals[x] += sum(im[y][x])
+
+    totals = (np.array(totals) / 255).tolist()
+
+    totals_collection.append(np.array(totals))
+
+totals = (sum(totals_collection) / 10).tolist()
+
 
 totals.reverse()
 
