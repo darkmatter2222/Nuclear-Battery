@@ -13,17 +13,18 @@ import matplotlib.colors as colors
 from PIL import Image, ImageDraw, ImageFont
 
 raw_filename = r"C:\Users\ryans\Downloads\sunlight.jpg"
+raw_filename = r"C:\Users\ryans\Downloads\1U5hddy.jpg"
 im = np.asarray(Image.open(raw_filename))
 
 sliced_im = im[1100:1200, 970:1570]
 
 im = Image.fromarray(np.uint8(sliced_im)).convert('RGB')
 
-newsize = (400, im.size[1])
+newsize = (300, im.size[1])
 im = im.resize(newsize)
 
 imgplot = plt.imshow(im)
-plt.savefig('Sunlight.png', dpi=200)
+plt.savefig('raw.png', dpi=200)
 #plt.show()
 
 im = np.asarray(im)
@@ -39,9 +40,10 @@ for y in range(im.shape[0]):
 
 totals = (np.array(totals) / 255).tolist()
 
+totals.reverse()
 
 #plt.hist(totals)
-#plt.show()
+
 
 def wavelength_to_rgb(wavelength, gamma=0.8):
     ''' taken from http://www.noah.org/wiki/Wavelength_to_RGB_in_Python
@@ -96,7 +98,7 @@ def wavelength_to_rgb(wavelength, gamma=0.8):
     return (R, G, B, A)
 
 
-clim = (300, 700)
+clim = (400, 700)
 norm = plt.Normalize(*clim)
 wl = np.arange(clim[0], clim[1] + 1, 2)
 colorlist = list(zip(norm(wl), [wavelength_to_rgb(w) for w in wl]))
@@ -105,7 +107,7 @@ spectralmap = colors.LinearSegmentedColormap.from_list("spectrum", colorlist)
 fig, axs = plt.subplots(1, 1, figsize=(8, 4), tight_layout=True)
 
 mySpectra = {}
-mySpectra['wavelengths'] = np.arange(300, 700, 1)
+mySpectra['wavelengths'] = np.arange(400, 700, 1)
 mySpectra['intensities'] = totals
 
 wavelengths = mySpectra['wavelengths']
