@@ -15,7 +15,9 @@ raw_filename = ""
 
 totals_collection = []
 
-for i in range(10):
+image_count = 20
+
+for i in range(image_count):
     raw_filename = rf"C:\Users\ryans\Desktop\Spectrum1\{i}.jpg"
 
     im = np.asarray(Image.open(raw_filename))
@@ -43,7 +45,7 @@ for i in range(10):
 
     totals_collection.append(np.array(totals))
 
-totals = (sum(totals_collection) / 10).tolist()
+totals = (sum(totals_collection) / image_count).tolist()
 
 
 totals.reverse()
