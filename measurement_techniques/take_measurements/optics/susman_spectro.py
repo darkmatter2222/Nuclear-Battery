@@ -1,40 +1,20 @@
-import sys
-import math
-import time
 import numpy as np
-from fractions import Fraction
-from collections import OrderedDict
-from PIL import Image, ImageDraw, ImageFile, ImageFont, ImageOps
 import matplotlib.pyplot as plt
-from matplotlib.pyplot import cm
 import matplotlib.colors as colors
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image
 
-raw_filename = r"C:\Users\ryans\Downloads\sunlight.jpg"
 raw_filename = ""
-
 totals_collection = []
-
-image_count = 20
+image_count = 50
 
 for i in range(image_count):
-    raw_filename = rf"C:\Users\ryans\Desktop\Spectrum1\{i}.jpg"
-
+    raw_filename = rf"C:\Users\ryans\Desktop\Spectrum1_tritium_ice_blue\{i}.jpg"
     im = np.asarray(Image.open(raw_filename))
-
-    sliced_im = im[1100:1200, 970:1570]
-
+    sliced_im = im[1100:1200, 970:1570] # use this to slice out the spectrum
     im = Image.fromarray(np.uint8(sliced_im)).convert('RGB')
-
     newsize = (300, im.size[1])
     im = im.resize(newsize)
-
-    #imgplot = plt.imshow(im)
-    #plt.savefig('raw.png', dpi=200)
-    #plt.show()
-
     im = np.asarray(im)
-
     totals = [0] * im.shape[1]
 
     for y in range(im.shape[0]):
@@ -42,15 +22,11 @@ for i in range(image_count):
             totals[x] += sum(im[y][x])
 
     totals = (np.array(totals) / 255).tolist()
-
     totals_collection.append(np.array(totals))
 
 totals = (sum(totals_collection) / image_count).tolist()
 
-
 totals.reverse()
-
-#plt.hist(totals)
 
 
 def wavelength_to_rgb(wavelength, gamma=0.8):
@@ -121,6 +97,7 @@ mySpectra['intensities'] = totals
 wavelengths = mySpectra['wavelengths']
 spectrum = mySpectra['intensities']
 plt.plot(wavelengths, spectrum, color='black', linewidth=1)
+plt.title("Emission Spectrum of a Ice Blue Tritium Vial")
 
 y = mySpectra['intensities']
 X, Y = np.meshgrid(wavelengths, y)
@@ -135,7 +112,3 @@ plt.fill_between(wavelengths, spectrum, max(spectrum), color='w')
 plt.savefig('WavelengthColors.png', dpi=200)
 
 plt.show()
-
-
-
-lol =1
