@@ -1,7 +1,7 @@
 # Ryan Susman's Nuclear Battery Project 
 
 # Project Resources 
-[Ryan Susman's Nuclear Battery Project Blog](https://susmantritiumnuclearbattery.blogspot.com/)  
+[Ryan Susman's Nuclear Battery Project Blog](https://blog.hobbytimewith.me/search/label/Nuclear%20Battery%20Project)  
 [Youtube Channel](https://www.youtube.com/channel/UCgzdK6hoZUK6JLURkCWdIGA)
 
 # Objective:  
