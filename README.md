@@ -2,6 +2,7 @@
 
 # Project Resources 
 [Ryan Susman's Nuclear Battery Project Blog](https://blog.hobbytimewith.me/search/label/Nuclear%20Battery%20Project)  
+Where to buy tritium? [Tritium Buying Guide](https://blog.hobbytimewith.me/2021/11/tritium-buying-guide.html)  
 [Youtube Channel](https://www.youtube.com/channel/UCgzdK6hoZUK6JLURkCWdIGA)
 
 # Objective:  
