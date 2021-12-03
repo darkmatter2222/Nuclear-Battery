@@ -8,7 +8,7 @@ totals_collection = []
 image_count = 50
 
 for i in range(image_count):
-    raw_filename = rf"C:\Users\ryans\Desktop\Spectrum1_tritium_ice_blue\{i}.jpg"
+    raw_filename = rf"C:\Users\ryans\Desktop\Spectrum1_laser_red\{i}.jpg"
     im = np.asarray(Image.open(raw_filename))
     sliced_im = im[1100:1200, 970:1570] # use this to slice out the spectrum
     im = Image.fromarray(np.uint8(sliced_im)).convert('RGB')
@@ -97,7 +97,7 @@ mySpectra['intensities'] = totals
 wavelengths = mySpectra['wavelengths']
 spectrum = mySpectra['intensities']
 plt.plot(wavelengths, spectrum, color='black', linewidth=1)
-plt.title("Emission Spectrum of a Ice Blue Tritium Vial")
+plt.title("Emission Spectrum of a Red Laser")
 
 y = mySpectra['intensities']
 X, Y = np.meshgrid(wavelengths, y)
