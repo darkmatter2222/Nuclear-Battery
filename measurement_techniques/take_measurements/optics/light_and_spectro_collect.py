@@ -76,4 +76,4 @@ result['target_wavelengths']['680'] = sensor.channel_680nm
 result['special_measurements']['Clear'] = sensor.channel_clear
 result['special_measurements']['NIR'] = sensor.channel_nir
 
-print(json.loads(result, indent=1))
+print(json.dumps(result, indent=1))
