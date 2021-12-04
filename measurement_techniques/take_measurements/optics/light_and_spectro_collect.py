@@ -65,15 +65,15 @@ def bar_graph(read_value):
 
 # begin taking measurement
 result['lux'] = veml7700.lux
-result['target_wavelengths']['415'] = sensor.channel_415nm
-result['target_wavelengths']['445'] = sensor.channel_445nm
-result['target_wavelengths']['480'] = sensor.channel_480nm
-result['target_wavelengths']['515'] = sensor.channel_515nm
-result['target_wavelengths']['555'] = sensor.channel_555nm
-result['target_wavelengths']['590'] = sensor.channel_590nm
-result['target_wavelengths']['630'] = sensor.channel_630nm
-result['target_wavelengths']['680'] = sensor.channel_680nm
-result['special_measurements']['Clear'] = sensor.channel_clear
-result['special_measurements']['NIR'] = sensor.channel_nir
+result['target_wavelengths']['415']['color_intensity'] = sensor.channel_415nm
+result['target_wavelengths']['445']['color_intensity'] = sensor.channel_445nm
+result['target_wavelengths']['480']['color_intensity'] = sensor.channel_480nm
+result['target_wavelengths']['515']['color_intensity'] = sensor.channel_515nm
+result['target_wavelengths']['555']['color_intensity'] = sensor.channel_555nm
+result['target_wavelengths']['590']['color_intensity'] = sensor.channel_590nm
+result['target_wavelengths']['630']['color_intensity'] = sensor.channel_630nm
+result['target_wavelengths']['680']['color_intensity'] = sensor.channel_680nm
+result['special_measurements']['Clear']['color_intensity'] = sensor.channel_clear
+result['special_measurements']['NIR']['color_intensity'] = sensor.channel_nir
 
 print(json.dumps(result, indent=1))
