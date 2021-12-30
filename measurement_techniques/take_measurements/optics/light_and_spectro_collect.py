@@ -56,10 +56,14 @@ result = {'lux': veml7700.lux,
                   'color_intensity': sensor.channel_nir,
               },
           },
-          'sensor_config': {
+          'sensor_configs': {
               'adafruit_VEML7700': {
                   'integration_time_value': veml7700.integration_time_value(),
                   'gain_value': veml7700.gain_value()
+              },
+              'adafruit_AS7341': {
+                  'integration_time_value': veml7700.integration_time_value(),
+                  'gain': sensor.gain()
               }
           }
           }
