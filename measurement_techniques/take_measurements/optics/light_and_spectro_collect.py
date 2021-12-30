@@ -25,8 +25,14 @@ result = {}
 
 for adafruit_VEML7700_gain, adafruit_VEML7700_integration_time, adafruit_AS7341_gain in list(itertools.product(adafruit_VEML7700_gains, adafruit_VEML7700_integration_times, adafruit_AS7341_gains)):
     sensor.gain = adafruit_AS7341_gain
+
     veml7700.light_integration_time = adafruit_VEML7700_integration_time
     veml7700.light_gain = adafruit_VEML7700_gain
+
+    print(adafruit_AS7341_gain)
+    print(adafruit_VEML7700_integration_time)
+    print(adafruit_VEML7700_gain)
+    print('###')
 
     result[x] = {'vial_color': vial_color,
               'vial_age_years': vial_age_years,
