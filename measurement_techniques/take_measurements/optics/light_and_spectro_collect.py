@@ -17,7 +17,7 @@ vial_color = input("What color is the vial?")
 vial_age_years = input("how many years old is the vial?")
 
 adafruit_VEML7700_gains = [2, 1, 0.25, 0.125]
-adafruit_VEML7700_integration_times = [15, 50, 100, 200, 400, 800]
+adafruit_VEML7700_integration_times = [25, 50, 100, 200, 400, 800]
 adafruit_AS7341_gains = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 x = 0
