@@ -63,7 +63,7 @@ result = {'lux': veml7700.lux,
               },
               'adafruit_AS7341': {
                   'integration_time_value': veml7700.integration_time_value(),
-                  'gain': sensor.gain()
+                  'gain': sensor.gain
               }
           }
           }
