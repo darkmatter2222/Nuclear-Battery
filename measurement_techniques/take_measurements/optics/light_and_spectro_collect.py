@@ -96,4 +96,6 @@ for adafruit_VEML7700_gain, adafruit_VEML7700_integration_time, adafruit_AS7341_
         print(adafruit_VEML7700_gain)
         print('###')
 
-print(json.dumps(result, indent=1))
+f = open(f"{vial_color}.json", "w")
+f.write(json.dumps(result, indent=1))
+f.close()
