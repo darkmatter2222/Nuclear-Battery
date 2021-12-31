@@ -17,7 +17,7 @@ veml7700 = adafruit_veml7700.VEML7700(i2c)
 vial_color = input("What color is the vial?")
 vial_age_years = input("how many years old is the vial?")
 
-adafruit_VEML7700_gains = [2, 1, 0.25, 0.125]
+adafruit_VEML7700_gains = [veml7700.ALS_GAIN_2, veml7700.ALS_GAIN_1, veml7700.ALS_GAIN_1_4, veml7700.ALS_GAIN_1_8]
 adafruit_VEML7700_integration_times = [veml7700.ALS_25MS, veml7700.ALS_50MS, veml7700.ALS_100MS, veml7700.ALS_200MS, veml7700.ALS_400MS, veml7700.ALS_800MS]
 adafruit_AS7341_gains = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
